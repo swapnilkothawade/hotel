@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<body bgcolor="#E6E6E6">
+  <head>
+	<title>List of Hotels</title> <meta charset='utf-8'>
+  </head>
+  <body>
+  	<a href="/">Home</a></br>
+		<h2>Previously reviewed Hotels</h2><br/>
+		
+	 <table width = "30%" celpadding="10" cellspacing="10" border="3"> 
+	  <tr>
+	  <th width = "10%"  align = "center">Serial Number</th><th  align = "center">Hotel Name</th>
+	  </tr>
+	  {% for hotel in lists %}	 
+	   <tr>
+             <!-- iteration number for running loop  as the first row of table-->
+	     <td align = "center">{{loop.index}}</td>
+             <!--making the hotel name as a hyperlink  as the second row of table-->
+	     <td  align = "center"><a href="/display/{{ hotel.hotel_name }}"> {{ hotel.hotel_name }}</a>
+	  </tr>
+	 
+	  
+ 
+      {% endfor %}
+	   </table>
+	</body>
+</html>
+{% endautoescape %}

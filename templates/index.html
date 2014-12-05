@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<body bgcolor="#E6E6E6">
+  <head>
+    <title>Review Hotels</title> <meta charset='utf-8'>
+  </head>
+  <body>
+        <!-- creating hypelinks -->
+        <a href="/"  style="padding-right:20px;">Home</a>
+        <a href="/listreviews" style="padding-right:20px;">List of Reviewed Hotels</a>
+      <h2 >Welcome to Hotel Review!!!</h2>
+      <!-- calling variales erroe_message and message-->
+      <p style="color: red">{{ error_message }} {{message}} {{messageerror}}</p>
+      <form action="/submit" method="post">
+	<div>
+          <br>
+	    Name of the Hotel
+	    <td>
+             <input type="text" name="hotel_name" style="background-color:#D8F4F6;">
+            </td>
+	    </br>
+	  <br>
+	    Write a Review
+		<td>
+		<textarea name="content" style="width:160px;height:90px;background-color:#D8F4F6;">
+		</textarea><br>
+            </td>
+           <br>
+	    Numeric Rating
+	      <td>
+               <select name="numeric_rating" style="background-color:#D8F4F6;">
+	       <option value='1'>1</option>
+               <option value='2'>2</option>
+               <option value='3'>3</option>
+               <option value='4'>4</option>
+               <option value='5'>5</option>
+                </select>
+               </td>
+	   </br>
+
+          </tr>
+	    <br>
+                <div><input type="submit" value="Enter" style="background-color:#D8F4F6;"></div> 
+	      </form>
+           </div>
+	   <br/>
+
+  </body>
+</html>
+{% endautoescape %}

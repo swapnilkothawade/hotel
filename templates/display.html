@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <body bgcolor="E6E6E6">
+    <head>
+      <title>Review List</title> <meta charset='utf-8'>
+    </head>
+  <body>
+  <a href="/" style="padding-right:20px;">Home</a>
+<!-- Creating hyperlinks -->
+<a href="/sortdate/{{hotelName}}"  style="padding-right:20px;">Sort Hotels by date</a>  
+<a href="/sortnum/{{hotelName}}"  style="padding-right:20px;">Sort Hotels by numeric rating</a>  
+   <!-- calling variable hotelName -->
+   <h2>Reviews for Hotel {{hotelName}}</h2>
+<ul>
+<!-- calling variable cum_rate -->
+<li><u><i><h3 style="color: #08229A;"> Cumulative Rating is : {{cum_rate}}</h3></i></u></li>
+</ul>
+  </br>
+
+    <table width = "60%" celpadding="10" cellspacing="10" border="3">
+      <tr>
+	<th width = "10%" align = "center">Serial Number</th><th
+	  width="20%"  align = "center">Review</th><th width =
+	  "20%"  align = "center">Rating</th><th width="20%"  align = "center">Operation
+	</th>
+      </tr>
+      <!--interating reviews variables -->
+      {% for review in reviews %}
+	   <tr>
+	     <td  align = "center">{{loop.index}}</td>
+	     <td  align = "center">{{ review.content }}</td>
+	     <td  align = "center">{{ review.numeric_rating }} </td>
+             <!-- creating hyperlink referencing it by ID-->
+	     <td  align = "center"><a href=/delete/{{review.key().id()}}>Delete</a></td>
+	   </tr>
+      {% endfor %}
+    </table>
+
+    <a href="/">Review this Hotel</a>
+
+  </body>
+</html>
+{% endautoescape %}
